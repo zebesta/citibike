@@ -10,6 +10,9 @@ import { CitibikeService } from '../citibike.service';
 export class GeocodeAddressComponent implements OnInit {
   something: string;
   errorMessage: any;
+  startAddress: string = "70 Maujer, Brooklyn";
+  endAddress: string = "455 Brodway, New York";
+  gettingAddress: boolean = true;
 
   constructor(
     private citibikeService: CitibikeService
@@ -27,6 +30,24 @@ export class GeocodeAddressComponent implements OnInit {
           console.log(something);
         },
         error => this.errorMessage = <any>error
+      );
+  }
+  submit() {
+    console.log("You clicked submit!");
+    console.log(this.startAddress);
+    console.log(this.endAddress);
+    // this.citibikeService.getStations()
+    //   .then(
+    //     addresses => {
+    //       console.log(addresses);
+    //     },
+    //     error => this.errorMessage = <any>error
+    //   );
+    this.citibikeService.getAddress(this.startAddress, this.endAddress)
+      .then(
+        res =>{
+          console.log(res)
+        }, error => this.errorMessage = <any>error
       );
   }
 

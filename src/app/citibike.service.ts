@@ -12,7 +12,8 @@ export class CitibikeService {
   ) { }
 
   private citibikeStationsUrl = 'https://feeds.citibikenyc.com/stations/stations.json';
-  private testUrl = 'http://localhost:3000/helloworld'
+  private testUrl = 'http://localhost:3000/helloworld';
+  private serverUrl = 'http://localhost:3000';
 
   private extractData(res: Response){
     console.log("Extract data is reading: " + res);
@@ -44,6 +45,16 @@ export class CitibikeService {
     // console.log(this.http.get(this.testUrl));
 
     return this.http.get(this.testUrl)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+  getAddress(start, end): Promise<any>{
+    console.log("Trying to get address from service!");
+    // console.log(this.http.get(this.testUrl));
+    // var fullUrl = this.serverUrl + '/address/' + address;
+
+    return this.http.get(this.serverUrl+'/address/'+start + '/end/' + end)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);
