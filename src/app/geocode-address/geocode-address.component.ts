@@ -71,7 +71,7 @@ export class GeocodeAddressComponent implements OnInit {
           console.log("Trying to resolve the promise in the geocode component for calculate!");
           console.log(res);
           // this.responseObject = JSON.parse(res);
-          this.citibikeTime = JSON.stringify(res);
+          this.citibikeTime = res.totaltime;
           console.log(res.walk1);
           this.walk1 = res.walk1;
           this.walk2 = res.walk2;
