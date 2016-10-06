@@ -52,7 +52,7 @@ export class CitibikeService {
       .catch(this.handleError);
   }
   getAddress(start, end): Promise<any>{
-    console.log("Trying to get address from service!");
+    console.log("Trying to get address from service!: ");
     // console.log(this.http.get(this.testUrl));
     // var fullUrl = this.serverUrl + '/address/' + address;
 
@@ -62,8 +62,8 @@ export class CitibikeService {
       .catch(this.handleError);
   }
   getTravelTimes(addresses): Promise<any>{
-    console.log("Trying to get travel times from service!");
-    return this.http.get(this.serverUrl+'/startll/' + addresses.startLatLng + '/endll' + addresses.endLatLng)
+    console.log("Trying to get travel times from service!" + this.serverUrl+'/calc/startll/' + JSON.stringify(addresses.startLatLng)+ '/endll/' + JSON.stringify(addresses.endLatLng));
+    return this.http.get(this.serverUrl+'/calc/startll/' + JSON.stringify(addresses.startLatLng) + '/endll/' + JSON.stringify(addresses.endLatLng))
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);

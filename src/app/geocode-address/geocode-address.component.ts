@@ -13,6 +13,7 @@ export class GeocodeAddressComponent implements OnInit {
   errorMessage: any;
   startAddress: string = "70 Maujer, Brooklyn";
   endAddress: string = "455 Brodway, New York";
+  citibikeTime: string;
   gettingAddress: boolean = true;
   addresses: Addresses;
 
@@ -34,7 +35,7 @@ export class GeocodeAddressComponent implements OnInit {
         error => this.errorMessage = <any>error
       );
   }
-  
+
   submit() {
     console.log("You clicked submit!");
     console.log(this.startAddress);
@@ -59,6 +60,14 @@ export class GeocodeAddressComponent implements OnInit {
 
   calculateRouteTime() {
     console.log("You clicked calculate!");
+    this.citibikeService.getTravelTimes(this.addresses)
+      .then(
+        res =>{
+          console.log("Trying to resolve the promise in the geocode component for calculate!");
+          console.log(res);
+          this.citibikeTime = res;
+        }, error => this.errorMessage = <any>error
+      );
 
   }
 
