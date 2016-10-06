@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { Addresses } from './addresses';
+
 
 
 @Injectable()
@@ -54,7 +56,14 @@ export class CitibikeService {
     // console.log(this.http.get(this.testUrl));
     // var fullUrl = this.serverUrl + '/address/' + address;
 
-    return this.http.get(this.serverUrl+'/address/'+start + '/end/' + end)
+    return this.http.get(this.serverUrl+'/start/'+start + '/end/' + end)
+      .toPromise()
+      .then(this.extractData)
+      .catch(this.handleError);
+  }
+  getTravelTimes(addresses): Promise<any>{
+    console.log("Trying to get travel times from service!");
+    return this.http.get(this.serverUrl+'/startll/' + addresses.startLatLng + '/endll' + addresses.endLatLng)
       .toPromise()
       .then(this.extractData)
       .catch(this.handleError);

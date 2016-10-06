@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CitibikeService } from '../citibike.service';
+import { Addresses } from '../addresses';
 
 @Component({
   selector: 'app-geocode-address',
@@ -13,6 +14,7 @@ export class GeocodeAddressComponent implements OnInit {
   startAddress: string = "70 Maujer, Brooklyn";
   endAddress: string = "455 Brodway, New York";
   gettingAddress: boolean = true;
+  addresses: Addresses;
 
   constructor(
     private citibikeService: CitibikeService
@@ -32,6 +34,7 @@ export class GeocodeAddressComponent implements OnInit {
         error => this.errorMessage = <any>error
       );
   }
+  
   submit() {
     console.log("You clicked submit!");
     console.log(this.startAddress);
@@ -47,8 +50,16 @@ export class GeocodeAddressComponent implements OnInit {
       .then(
         res =>{
           console.log(res)
+          this.addresses = res;
+          this.startAddress = this.addresses.start;
+          this.endAddress = this.addresses.end;
         }, error => this.errorMessage = <any>error
       );
+  }
+
+  calculateRouteTime() {
+    console.log("You clicked calculate!");
+
   }
 
 }
