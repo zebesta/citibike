@@ -23,8 +23,13 @@
             <button (click)="submit()" class="btn btn-default">Check Addresses!</button>
             <button (click)="calculateRouteTime()" class="btn btn-default">Calculate route times!</button>
         </div>
-        <!-- <div *ngIf="citibikeTime" class="container"> -->
-          <h1>{{citibikeTime}}</h1>
+        <div *ngIf="walk1" class="container">
+          <!-- <h1>{{citibikeTime}}</h1> -->
+          <h2>{{station1}} </h2>
+          <h3>{{walk1}} </h3>
+          <h3>{{bike1}} </h3>
+          <h2>{{station2}} </h2>
+          <h3>{{walk2}} </h3>
         <!-- </div> -->
     </div>
     <div class="col-lg-6">

@@ -15,6 +15,11 @@ export class GeocodeAddressComponent implements OnInit {
   endAddress: string = "455 Brodway, New York";
   citibikeTime: string;
   gettingAddress: boolean = true;
+  walk1: string;
+  station1: string;
+  walk2: string;
+  station2: string;
+  bike1: string;
   addresses: Addresses;
 
   constructor(
@@ -65,7 +70,14 @@ export class GeocodeAddressComponent implements OnInit {
         res =>{
           console.log("Trying to resolve the promise in the geocode component for calculate!");
           console.log(res);
-          this.citibikeTime = res;
+          // this.responseObject = JSON.parse(res);
+          this.citibikeTime = JSON.stringify(res);
+          console.log(res.walk1);
+          this.walk1 = res.walk1;
+          this.walk2 = res.walk2;
+          this.station1 = res.station1;
+          this.station2 = res.station2;
+          this.bike1 = res.bike1;
         }, error => this.errorMessage = <any>error
       );
 
