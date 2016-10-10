@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { GeocodeAddressComponent } from './geocode-address/geocode-address.component';
+import { ColumnTestComponent } from './column-test/column-test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeocodeAddressComponent
+    GeocodeAddressComponent,
+    ColumnTestComponent
   ],
   imports: [
     BrowserModule,
