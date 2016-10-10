@@ -20,6 +20,9 @@ export class GeocodeAddressComponent implements OnInit {
   addresses: Addresses;
   travelcard: Travelcard;
   travelcards: Travelcard[];
+  walking: Travelcard;
+  bicycling: Travelcard;
+  driving: Travelcard;
 
   constructor(
     private citibikeService: CitibikeService
@@ -69,9 +72,12 @@ export class GeocodeAddressComponent implements OnInit {
         res =>{
           console.log("Trying to resolve the promise in the geocode component for calculate!");
           // console.log(res);
-          console.log(res[0]);
-          this.travelcards = res;
-          console.log(res);
+          // console.log(res[0]);
+          this.walking = res[0];
+          this.bicycling = res[1];
+          this.driving = res[2];
+          this.travelcards = res.slice(3);
+          // console.log(res);
           // this.travelcard = res[0];
           // this.citibikeTime = this.travelcard.timeString;
           // this.responseObject = JSON.parse(res);

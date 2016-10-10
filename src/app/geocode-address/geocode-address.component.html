@@ -5,7 +5,7 @@
   <div class="row">
 
     <!-- text entry for addresses and button to find address via google maps -->
-    <div class="col-lg-6">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
       <div *ngIf="gettingAddress" class="container">
           <h1>Get some addresses!</h1>
             <div class="form-group">
@@ -24,10 +24,43 @@
             <button (click)="calculateRouteTime()" class="btn btn-default">Calculate route times!</button>
         </div>
         <ul class="travelcards" style="list-style: none;">
-          <li *ngFor="let travelcard of travelcards" (click)="gotoMap(travelcard)">
+          <li class="col-xs-12 col-sm-12 col-md-6 col-lg-6" *ngFor="let travelcard of travelcards" (click)="gotoMap(travelcard)">
             <span class="badge {{travelcard.type}}">{{travelcard.type}}</span>{{travelcard.timeString}}
+            <br>
+            {{travelcard.startLoc}}
+            <br>
+            {{travelcard.endLoc}}
           </li>
         </ul>
+
+        <div *ngIf="walking" class="container">
+          WALKING:
+          <br>
+          <span class="badge {{walking.type}}">{{walking.type}}</span>{{walking.timeString}}
+          <br>
+          {{walking.startLoc}}
+          <br>
+          {{walking.endLoc}}
+        </div>
+        <div *ngIf="bicycling" class="container">
+          BIKING:
+          <br>
+          <span class="badge {{bicycling.type}}">{{bicycling.type}}</span>{{bicycling.timeString}}
+          <br>
+          {{bicycling.startLoc}}
+          <br>
+          {{bicycling.endLoc}}
+        </div>
+        <div *ngIf="driving" class="container">
+          DRIVING:
+          <br>
+          <span class="badge {{driving.type}}">{{driving.type}}</span>{{driving.timeString}}
+          <br>
+          {{driving.startLoc}}
+          <br>
+          {{driving.endLoc}}
+        </div>
+
         <!-- <div *ngIf="citibikeTime" class="container">
           <h1>{{citibikeTime}}</h1>
           <h1>{{citibikeTime}}</h1>
