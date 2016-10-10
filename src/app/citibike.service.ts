@@ -3,6 +3,7 @@ import { Headers, Http, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Addresses } from './addresses';
+import { Travelcard } from './travelcard'
 
 
 
@@ -68,6 +69,15 @@ export class CitibikeService {
       .then(this.extractData)
       .catch(this.handleError);
   }
+  // addPlant(name: string, type: string, color: string, imageurl: string): Promise<Plant> {
+  //   let body = JSON.stringify({ name, type, color, imageurl });
+  //   let headers = new Headers({ 'Content-Type': 'application/json' });
+  //   let options = new RequestOptions({ headers: headers });
+  //   return this.http.post(this.plantsUrl, body, options)
+  //              .toPromise()
+  //              .then(this.extractData)
+  //              .catch(this.handleError);
+  // }
 
 
 }

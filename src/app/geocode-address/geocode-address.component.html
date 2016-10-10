@@ -23,13 +23,13 @@
             <button (click)="submit()" class="btn btn-default">Check Addresses!</button>
             <button (click)="calculateRouteTime()" class="btn btn-default">Calculate route times!</button>
         </div>
-        <ul class="travelcards">
-          <li *ngFor="let travelcard of travelcards">
-            <span class="badge {{travelcard.type}}" (click)="gotoMap(travelcard)">{{travelcard.type}}</span>{{travelcard.timeString}}
+        <ul class="travelcards" style="list-style: none;">
+          <li *ngFor="let travelcard of travelcards" (click)="gotoMap(travelcard)">
+            <span class="badge {{travelcard.type}}">{{travelcard.type}}</span>{{travelcard.timeString}}
           </li>
         </ul>
-        <div *ngIf="citibikeTime" class="container">
-          <!-- <h1>{{citibikeTime}}</h1> -->
+        <!-- <div *ngIf="citibikeTime" class="container">
+          <h1>{{citibikeTime}}</h1>
           <h1>{{citibikeTime}}</h1>
           <h2>{{station1}} </h2>
           <h3>{{walk1}} </h3>
@@ -38,7 +38,7 @@
           <br>
           <h2>{{station2}} </h2>
           <h3>{{walk2}} </h3>
-        <!-- </div> -->
+        </div> -->
     </div>
       <!-- </form> -->
   </div>

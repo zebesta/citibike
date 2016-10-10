@@ -12,15 +12,11 @@ import { Travelcard } from '../travelcard'
 export class GeocodeAddressComponent implements OnInit {
   something: string;
   errorMessage: any;
+  //TODO: will want to change these to be empty later
   startAddress: string = "70 Maujer, Brooklyn";
   endAddress: string = "455 Brodway, New York";
   citibikeTime: string;
   gettingAddress: boolean = true;
-  walk1: string;
-  station1: string;
-  walk2: string;
-  station2: string;
-  bike1: string;
   addresses: Addresses;
   travelcard: Travelcard;
   travelcards: Travelcard[];
@@ -72,19 +68,15 @@ export class GeocodeAddressComponent implements OnInit {
       .then(
         res =>{
           console.log("Trying to resolve the promise in the geocode component for calculate!");
-          console.log(res);
+          // console.log(res);
           console.log(res[0]);
           this.travelcards = res;
+          console.log(res);
           // this.travelcard = res[0];
           // this.citibikeTime = this.travelcard.timeString;
           // this.responseObject = JSON.parse(res);
           // this.citibikeTime = res.totaltime;
-          // console.log(res.walk1);
-          // this.walk1 = res.walk1;
-          // this.walk2 = res.walk2;
-          // this.station1 = res.station1;
-          // this.station2 = res.station2;
-          // this.bike1 = res.bike1;
+
         }, error => this.errorMessage = <any>error
       );
 
