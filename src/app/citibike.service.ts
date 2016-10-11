@@ -15,8 +15,9 @@ export class CitibikeService {
   ) { }
 
   private citibikeStationsUrl = 'https://feeds.citibikenyc.com/stations/stations.json';
-  private testUrl = 'http://localhost:3000/helloworld';
-  private serverUrl = 'http://localhost:3000';
+  // private serverUrl = 'http://localhost:3000';
+  private serverUrl = 'http://mysterious-mesa-23106.herokuapp.com';
+  private testUrl = this.serverUrl + '/helloworld';
 
   private extractData(res: Response){
     console.log("Extract data is reading: " + res);

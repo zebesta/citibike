@@ -31,18 +31,18 @@ export class GeocodeAddressComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getSomething();
+    // this.getSomething();
   }
 
   getSomething(){
-    this.citibikeService.getSomething()
-      .then(
-        something => {
-          this.something = something;
-          console.log(something);
-        },
-        error => this.errorMessage = <any>error
-      );
+    // this.citibikeService.getSomething()
+    //   .then(
+    //     something => {
+    //       this.something = something;
+    //       console.log(something);
+    //     },
+    //     error => this.errorMessage = <any>error
+    //   );
   }
 
   submit() {
